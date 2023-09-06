@@ -1,0 +1,54 @@
+version: '3.7'
+
+services:
+  rabbitmq1:
+    image: "rabbitmq:management"
+    hostname: "rabbitmq1"
+    environment:
+      RABBITMQ_DEFAULT_USER: user1
+      RABBITMQ_DEFAULT_PASS: pass1
+    ports:
+      - 5671:5672
+      - "15671:15672"
+    networks:
+      - rabbitmq-network
+
+  rabbitmq2:
+    image: "rabbitmq:management"
+    hostname: "rabbitmq2"
+    environment:
+      RABBITMQ_DEFAULT_USER: user2
+      RABBITMQ_DEFAULT_PASS: pass2
+    ports:
+      - 5672:5672
+      - "15672:15672"
+    networks:
+      - rabbitmq-network
+
+  rabbitmq3:
+    image: "rabbitmq:management"
+    hostname: "rabbitmq3"
+    environment:
+      RABBITMQ_DEFAULT_USER: user3
+      RABBITMQ_DEFAULT_PASS: pass3
+    ports:
+      - 5673:5672
+      - "15673:15672"
+    networks:
+      - rabbitmq-network
+
+  rabbitmq4:
+    image: "rabbitmq:management"
+    hostname: "rabbitmq4"
+    environment:
+      RABBITMQ_DEFAULT_USER: user4
+      RABBITMQ_DEFAULT_PASS: pass4
+    ports:
+      - 5674:5672
+      - "15674:15672"
+    networks:
+      - rabbitmq-network
+
+networks:
+  rabbitmq-network:
+    driver: bridge
